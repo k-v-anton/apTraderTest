@@ -1,8 +1,12 @@
-import React from 'react'
-import styles from './styles.module.scss'
+import { Route, Routes } from 'react-router-dom'
+import { HomePage } from '../../pages/homePage/HomePage'
+import { ProjectPage } from '../../pages/projectPage/ProjectPage'
 
 export const App = () => {
   return (
-    <div className={styles.container}>App</div>
+    <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/project/:projectName' element={<ProjectPage />} />
+    </Routes>
   )
 }

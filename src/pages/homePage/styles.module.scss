@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+  height: 100dvh;
+  background-color: black;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.title {
+  color: white;
+  text-align: center;
+  font-size: 4em;
+  letter-spacing: 0.5em;
+  font-weight: 900;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+  max-width: 90em;
+  width: 100%;
+}
+
+.projectCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: red;
+  width: 100%;
+  min-height: 3em;
+  padding: 1em;
+  border: 1px solid red;
+  border-radius: 1em;
+  box-shadow: 
+    inset 0 0 8px 4px solid red, 
+    inset 0 0 16px 8px solid red, 
+    0 0 8px 4px solid red;
+}
