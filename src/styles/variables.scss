@@ -1,0 +1,12 @@
+:root {
+  --titleFontSize:  calc(2.5em + 25 * (100vw - 320px) / 1440);
+
+  --colorBtn: #699be7;
+  --colorTextControllers: #ff0000;
+  --colorPrimary: #111111;
+  --colorSecondary: #ffffff;
+
+  
+
+  --transitionMain: .25s cubic-bezier(0,.3,1,.7);
+}

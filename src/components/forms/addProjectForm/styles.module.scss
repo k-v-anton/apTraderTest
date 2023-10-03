@@ -1,0 +1,72 @@
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.controllers {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+.controller {
+  position: relative;
+  width: 100%;
+  padding: 1.5em 0;
+}
+
+.label {
+ position: absolute;
+ top: .75em;
+ left: 3em;
+ background-color: var(--colorPrimary);
+ padding: 0 1em;
+ color: var(--colorBtn);
+
+}
+
+.input {
+  width: 100%;
+  padding: .75em 1.5em;
+  border-radius: .5em;
+  border: .1em solid var(--colorBtn);
+  color: var(--colorTextControllers);
+  background-color: transparent;
+}
+
+.btnBlock {
+  display: flex;
+  gap: 2em;
+  justify-content: end;
+  width: 100%;
+}
+
+.inputBtn[type=submit], .inputBtn[type=button] {
+  border: 1px solid var(--colorBtn);
+  padding: .75em 1em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: var(--colorBtn);
+  border-radius: .5em;
+  transition: 
+    color var(--transitionMain), 
+    background-color var(--transitionMain), 
+    box-shadow var(--transitionMain), 
+    border var(--transitionMain) ;
+
+
+  &:hover {
+    background-color: var(--colorBtn);
+    color: var(--colorSecondary);
+    border: 1px solid var(--colorBtn);
+    box-shadow: 0 0 40px 4px var(--colorBtn);
+  }
+}

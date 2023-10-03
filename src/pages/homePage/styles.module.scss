@@ -1,4 +1,7 @@
+@use '../../styles/variables.scss';
+
 .container {
+  position: relative;
   width: 100%;
   height: 100dvh;
   background-color: black;
@@ -6,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1em;
 
 
 }
@@ -13,10 +17,9 @@
 .title {
   color: white;
   text-align: center;
-  font-size: 4em;
+  font-size: var(--titleFontSize);
   letter-spacing: 0.5em;
   font-weight: 900;
-  margin-bottom: 5rem;
   text-transform: uppercase;
 }
 
@@ -24,8 +27,24 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1em;
-  max-width: 90em;
+
   width: 100%;
+
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 840px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 748px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .projectCart {
@@ -39,8 +58,33 @@
   padding: 1em;
   border: 1px solid red;
   border-radius: 1em;
-  box-shadow: 
-    inset 0 0 8px 4px solid red, 
-    inset 0 0 16px 8px solid red, 
+  box-shadow:
+    inset 0 0 8px 4px solid red,
+    inset 0 0 16px 8px solid red,
     0 0 8px 4px solid red;
 }
+
+.primaryBtn {
+  border: 1px solid;
+  background-color: transparent;
+  text-transform: uppercase;
+  padding: .75em 1.5em;
+  font-size: 0.8em;
+  transition: 0.2s;
+  color: var(--colorBtn);
+  border-radius: .5em;
+  transition:
+    color var(--transitionMain),
+    background-color var(--transitionMain),
+    box-shadow var(--transitionMain),
+    border var(--transitionMain);
+
+  &:hover {
+    background-color: var(--colorBtn);
+    color: var(--colorSecondary);
+    border: 1px solid var(--colorBtn);
+    box-shadow: 0 0 100px 6px var(--colorBtn);
+  }
+
+}
+
