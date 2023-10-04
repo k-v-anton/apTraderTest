@@ -1,4 +1,4 @@
-.container {
+.containerPopup {
   width: 100dvw;
   height: 100dvh;
   position: absolute;
@@ -12,20 +12,29 @@
 
 }
 
+
+
+
 .popup {
-  width: 25em;
+  width: 50em;
+  max-width: 60%;
   background-color: var(--colorPrimary);
   border-radius: 1em;
   padding: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: center;
 
   @media (max-width: 1024px) {
     width: 80%;
+    max-width: 100%;
   }
 
   @media (max-width: 748px) {
     width: 90%;
+    max-width: 100%;
   }
 }
+
+

@@ -1,0 +1,64 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5em;
+  grid-template-areas: 'taskName taskName dateEndProject wrapperSelect'
+  'wrapperTextArea wrapperTextArea wrapperTextArea wrapperTextArea'
+  'btnBlock btnBlock btnBlock btnBlock';
+}
+.taskName {
+  grid-area: taskName;
+}
+.dateEndProject {
+  grid-area: dateEndProject;
+}
+.wrapperSelect {
+  grid-area: wrapperSelect;
+}
+
+.btnBlock {
+  display: flex;
+  justify-content: space-between;
+  grid-area: btnBlock;
+}
+
+.wrapperTextArea {
+  grid-area: wrapperTextArea;
+}
+
+.inputBtn[type=submit],
+.inputBtn[type=button] {
+  border: 1px solid var(--colorBtn);
+  padding: .75em 1em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: var(--colorBtn);
+  border-radius: .5em;
+  transition:
+    color var(--transitionMain),
+    background-color var(--transitionMain),
+    box-shadow var(--transitionMain),
+    border var(--transitionMain);
+
+
+  &:hover {
+    background-color: var(--colorBtn);
+    color: var(--colorSecondary);
+    border: 1px solid var(--colorBtn);
+    box-shadow: 0 0 40px 4px var(--colorBtn);
+  }
+}
+
+.descriptionTask {
+  padding: 1em;
+  width: 100%;
+  min-height: 8em;
+  resize: none;
+  border: .1em solid var(--colorBtn);
+  background-color: transparent;
+  border-radius: 1em;
+  color: var(--colorTextControllers);
+}
+

@@ -13,13 +13,15 @@ export const AddProjectForm = () => {
   const { register, handleSubmit } = formCreateNewProject
 
   const hamdleSubmitNewProject = (data: { [key: string]: string | number }) => {
-    console.log(data)
 
     const newProject = {
       id: projectList.length + 1,
       name: data.name,
+      status: 'in_work',
       route: data.name.toString().toLowerCase().split(' ').join('_'),
+      tasks: []
     } as ProjectType
+
     dispatch(addProjectAction(newProject))
     dispatch(toglePopUpCreateProjectAction())
   }
@@ -30,16 +32,14 @@ export const AddProjectForm = () => {
   return (
     <form name={'createNewProject'} onSubmit={handleSubmit(hamdleSubmitNewProject)} className={styles.form}>
       <div className={styles.controllers}>
-     <div className={styles.controller}>
-          <label className={styles.label}>
-            Enter project name 
-          </label>
-          <input autoComplete='off' type='text' {...register('name')} className={styles.input} />
-     </div>
+        <div className={styles.controller}>
+          <label className={styles.label}>Enter project name</label>
+          <input autoComplete='off' autoFocus type='text' {...register('name')} className={styles.input} />
+        </div>
       </div>
       <div className={styles.btnBlock}>
-        <input type='button' value={'close'} onClick={handleShowPopup} className={styles.inputBtn} />
-        <input type='submit' value={'create'} className={styles.inputBtn} />
+        <input type='button' value={'cancel'} onClick={handleShowPopup} className={styles.inputBtn} />
+        <input type='submit' value={'add project'} className={styles.inputBtn} />
       </div>
     </form>
   )

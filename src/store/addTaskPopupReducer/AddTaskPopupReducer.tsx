@@ -8,27 +8,25 @@ const CLOSE_POPUP = 'CLOSE_POPUP'
 
 const defaultStatePopUpCreateProject: StateType = false
 
-export const createProjectPopUpReducer = (state: StateType = defaultStatePopUpCreateProject, action: ActionType) => {
+export const addTaskPopupReducer = (state: StateType = defaultStatePopUpCreateProject, action: ActionType) => {
   switch (action.type) {
     case TOGLE_POPUP:
       return !state
       case CLOSE_POPUP:
         return false
   
-
     default:
       return state
   }
 }
 
-export const toglePopUpCreateProjectAction = () => {
+export const toglePopUpAddTaskAction = () => {
   return {
     type: TOGLE_POPUP,
   }
 }
 
-
-export const closePopUpCreateProjectAction = () => {
+export const closePopUpAddTaskAction = () => {
   return {
     type: CLOSE_POPUP,
   }

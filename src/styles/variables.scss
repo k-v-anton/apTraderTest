@@ -1,10 +1,12 @@
 :root {
   --titleFontSize:  calc(2.5em + 25 * (100vw - 320px) / 1440);
-
+  --titleFontSizeSecondary:  calc(1.5em + 15 * (100vw - 320px) / 1440);
   --colorBtn: #699be7;
   --colorTextControllers: #ff0000;
+  --colorBorderPrimary: #ff0000;
   --colorPrimary: #111111;
   --colorSecondary: #ffffff;
+  --colorCompliteBorder: rgb(123, 255, 0);
 
   
 

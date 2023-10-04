@@ -1,5 +1,7 @@
 export type ProjectType = {
-  id: string | number
+  id: number
   name: string
   route: string
+  status: string
+
 }

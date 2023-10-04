@@ -1,0 +1,97 @@
+@use '../../styles/mixins.scss' as mix;
+
+.container {
+  border-radius: .5em;
+  user-select: none;
+  padding: .5em;
+  position: relative;
+
+  color: var(--colorSecondary);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  grid-template-areas:
+    'titleTask titleTask titleTask number'
+    'dateCreate dateCreate  dateComplite dateComplite'
+    'wrapperBtns wrapperBtns wrapperBtns wrapperBtns'
+  ;
+}
+
+.priority {
+  grid-area: priority;
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  }
+
+.number {
+  grid-area: number;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleTask {
+  grid-area: titleTask;
+}
+
+.description {
+  grid-area: description;
+}
+
+.dateCreate {
+  grid-area: dateCreate;
+}
+
+.dateComplite {
+  grid-area: dateComplite;
+}
+
+.priority {
+grid-area: priority;
+}
+
+.files {
+grid-area: files;
+}
+
+.status {
+  grid-area: status;
+}
+
+.subtusks {
+  grid-area: subtusks;
+}
+
+.coments {
+  grid-area: coments;
+}
+
+
+.wrapperBtns {
+  grid-area: wrapperBtns;
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  @include mix.primaryBtn;
+}
+
+.shadowQueue {
+  box-shadow: inset 0 0 100px 4px rgb(80, 221, 15);
+  
+}
+
+.shadowDevelopment {
+  box-shadow: inset 0 0 100px 4px red;
+  
+}
+
+.shadowDone {
+  box-shadow: inset 0 0 100px 4px rgb(134, 130, 130);
+  
+}

@@ -1,0 +1,52 @@
+@use '../../styles/variables.scss';
+@use '../../styles/mixins.scss' as mix;
+
+.projectCart {
+  color: var(--colorBorderPrimary);
+  width: 100%;
+  min-height: 3em;
+  padding: 1em;
+  border-radius: 1em;
+  display: grid;
+  gap: .5em;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas: 'projectName projectName projectName projectName projectName rename'
+  'delete delete complite complite tasks tasks';
+}
+
+.primaryBtn {
+  @include mix.primaryBtn;
+}
+
+.btnRename {
+  @include mix.primaryBtn;
+  grid-area: rename;
+}
+
+.projectName {
+  grid-area: projectName;
+  @include mix.titleSecondary;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+}
+
+.borderInWork {
+  border: .1em solid var(--colorBorderPrimary);
+}
+
+.borderComplite {
+  border: .1em solid var(--colorCompliteBorder);
+}
+
+.tasks {
+  grid-area: tasks;
+}
+
+.delete {
+  grid-area: delete;
+}
+
+.complite {
+  grid-area: complite;
+}

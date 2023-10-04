@@ -1,9 +1,13 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { AddProjectForm } from '../../components/forms/addProjectForm'
 import { Popup } from '../../components/popup'
+import { ProjectCart } from '../../components/projectCart'
 import { GlobalStoreStateType } from '../../store'
-import { toglePopUpCreateProjectAction } from '../../store/createProjectPopUpReducer/createProjectPopUpReducer'
+import {
+  closePopUpCreateProjectAction,
+  toglePopUpCreateProjectAction,
+} from '../../store/createProjectPopUpReducer/createProjectPopUpReducer'
 import { ProjectType } from '../../types/project.Types'
 import styles from './styles.module.scss'
 
@@ -16,6 +20,16 @@ export const HomePage = () => {
     dispatch(toglePopUpCreateProjectAction())
   }
 
+  const handleUnload = () => {
+    dispatch(closePopUpCreateProjectAction())
+  }
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleUnload)
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload)
+    }
+  }, [])
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Projects</h1>
@@ -23,21 +37,34 @@ export const HomePage = () => {
       <button className={styles.primaryBtn} onClick={handleShowPopup}>
         Create new Project
       </button>
-      <div className={styles.wrapper}>
-        {projectList.map((el: ProjectType) => {
-          return (
-            <Link key={el.id} to={`/project/${el.route}`} className={styles.projectCart}>
-              {el.name}
-            </Link>
-          )
-        })}
+      <h2 className={styles.titleBoard}>in work:</h2>
+
+      <div className={styles.board}>
+        <div className={styles.wrapper}>
+          {projectList
+            .filter((el) => el.status === 'in_work')
+            .map((el: ProjectType) => {
+              return <ProjectCart key={el.id} {...el} />
+            })}
+        </div>
       </div>
 
-      {showPopUpCreateProject && (
-        <Popup>
-          <AddProjectForm />
-        </Popup>
-      )}
+      <h2 className={styles.titleBoard}>complite:</h2>
+      <div className={styles.board}>
+        <div className={styles.compliteProjectWrapper}>
+          <div className={styles.wrapper}>
+            {projectList
+              .filter((el) => el.status === 'complite')
+              .map((el: ProjectType) => {
+                return <ProjectCart key={el.id} {...el} />
+              })}
+          </div>
+        </div>
+      </div>
+
+      <Popup show={showPopUpCreateProject}>
+        <AddProjectForm />
+      </Popup>
     </div>
   )
 }

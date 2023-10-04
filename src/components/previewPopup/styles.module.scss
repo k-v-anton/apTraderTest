@@ -1,0 +1,21 @@
+@use '../../styles/mixins.scss' as mix;
+@use '../../styles/variables.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn {
+  @include mix.primaryBtn;
+}

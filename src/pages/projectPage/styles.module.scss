@@ -1,5 +1,70 @@
+@use '../../styles/variables.scss';
+@use '../../styles/mixins.scss' as mix;
+
 .container {
   width: 100%;
   height: 100dvh;
   background-color: black;
+  display: grid;
+  grid-template-rows: 5em 3em 1fr;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    overflow: visible;
+    height: auto;
+    
+  }
 }
+
+.title {
+  @include mix.titlePrimaty;
+}
+
+
+.home {
+  @include mix.primaryBtn;
+  width: 100px;
+  text-align: center;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  padding: 1em;
+  gap: 1em;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    
+  }
+}
+
+// .board {
+//   border: .2em solid red;
+//   border-radius: 2em;
+//   width: 100%;
+//   height: 100%;
+//   display: grid;
+//   grid-template-rows: 3em 1fr;
+//   color: white;
+//   overflow: hidden
+// }
+
+// .titleBoard {
+//   @include mix.titleSecondary;
+// }
+
+
+// .tasks {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1em;
+//   padding: 1em;
+//   border-radius: 1em;
+//   flex: 1;
+//   overflow-y: auto;
+//   @include mix.scroll;
+// }
